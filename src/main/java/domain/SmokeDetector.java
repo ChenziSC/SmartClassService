@@ -1,11 +1,11 @@
 package domain;
 
 
-public class Lamp extends Device {
+public class SmokeDetector extends Device{
     String state;
 
-    public Lamp() {
-        this.type = "lamp";
+    public SmokeDetector() {
+        type = "smokeDetector";
     }
 
     public String getState() {
@@ -15,5 +15,6 @@ public class Lamp extends Device {
     public void setState(String state) {
         this.state = state;
     }
+
 
 }
