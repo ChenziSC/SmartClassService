@@ -36,4 +36,8 @@ public class DeviceService {
         return devices;
     }
 
+    public List<Type> getAllDeviceType(){
+        return DeviceDao.getAllDeviceType();
+    }
+
 }

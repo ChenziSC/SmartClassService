@@ -6,35 +6,49 @@
         SELECT a.*,b.state
         FROM device as a,lamp as b
         where a.type="lamp" and a.id=b.deviceId
+        ORDER BY a.id
     </select>
 
     <select id="getDeviceWindow" resultType="domain.Window">
         SELECT a.*,b.state,b.coverPercent
         FROM device as a,window as b
         where a.type="window" and a.id=b.deviceId
+        ORDER BY a.id
     </select>
 
     <select id="getDeviceCurtain" resultType="domain.Curtain">
         SELECT a.*,b.state,b.coverPercent
         FROM device as a,curtain as b
         where a.type="curtain" and a.id=b.deviceId
+        ORDER BY a.id
     </select>
 
     <select id="getDeviceSmokeDetector" resultType="domain.SmokeDetector">
         SELECT a.*,b.state
         FROM device as a,smokedetector as b
         where a.type="smokeDetector" and a.id=b.deviceId
+        ORDER BY a.id
     </select>
 
     <select id="getDeviceAirConditioning" resultType="domain.AirConditioning">
         SELECT a.*,b.state,b.settingTemperature
         FROM device as a,airconditioning as b
         where a.type="airConditioning" and a.id=b.deviceId
+        ORDER BY a.id
     </select>
 
     <select id="getDeviceCamera" resultType="domain.Camera">
         SELECT a.*,b.state,b.lazyNum
         FROM device as a,camera as b
         where a.type="camera" and a.id=b.deviceId
+        ORDER BY a.id
     </select>
+
+    <select id="getAllDeviceType" resultType="domain.Type">
+        SELECT *
+        FROM type
+        ORDER BY id
+    </select>
+
+
 </mapper>

@@ -42,6 +42,11 @@ public class DeviceController {
 
     }
 
+    @RequestMapping(value = "/getAllDeviceType", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Type> getAllDeviceType(@RequestBody Device device) {
+        return deviceService.getAllDeviceType();
 
+    }
 }
 
