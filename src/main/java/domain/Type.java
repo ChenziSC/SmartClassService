@@ -4,6 +4,7 @@ public class Type {
     int id;
     String typeName;
     String chineseName;
+    int autoIsOpen;
 
     public int getId() {
         return id;
@@ -27,5 +28,13 @@ public class Type {
 
     public void setChineseName(String chineseName) {
         this.chineseName = chineseName;
+    }
+
+    public int getAutoIsOpen() {
+        return autoIsOpen;
+    }
+
+    public void setAutoIsOpen(int autoIsOpen) {
+        this.autoIsOpen = autoIsOpen;
     }
 }

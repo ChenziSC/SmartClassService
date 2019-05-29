@@ -50,5 +50,15 @@
         ORDER BY id
     </select>
 
+    <update id="updateDeviceIsOpenById" parameterType="domain.Device">
+        UPDATE device
+        SET
+        `isOpen` = #{isOpen}
+        WHERE `id` = #{id};
+        update ${type}
+        set
+        state='dasd'
+        where deviceId=#{id}
+    </update>
 
 </mapper>

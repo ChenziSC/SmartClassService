@@ -54,4 +54,11 @@ public interface DeviceDao {
      * @return
      */
     List<Type> getAllDeviceType();
+
+    /**
+     * 修改设备开关状态
+     *
+     * @return
+     */
+    void updateDeviceIsOpenById(Device device);
 }

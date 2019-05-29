@@ -12,32 +12,35 @@ import java.util.Map;
 
 @Service
 public class DeviceService {
+
     @Autowired
-    private DeviceDao DeviceDao;
+    private DeviceDao deviceDao;
 
     public List<Device> getDeviceByType(String type) {
 
         List<Device> devices = new LinkedList<>();
         if (type.equals("lamp")) {
-            devices = DeviceDao.getDeviceLamp();
+            devices = deviceDao.getDeviceLamp();
         } else if (type.equals("window")) {
-            devices = DeviceDao.getDeviceWindow();
+            devices = deviceDao.getDeviceWindow();
         } else if (type.equals("curtain")) {
-            devices = DeviceDao.getDeviceCurtain();
+            devices = deviceDao.getDeviceCurtain();
         } else if (type.equals("smokeDetector")) {
-            devices = DeviceDao.getDeviceSmokeDetector();
+            devices = deviceDao.getDeviceSmokeDetector();
         } else if (type.equals("airConditioning")) {
-            devices = DeviceDao.getDeviceAirConditioning();
+            devices = deviceDao.getDeviceAirConditioning();
         } else if (type.equals("camera")) {
-            devices = DeviceDao.getDeviceCamera();
+            devices = deviceDao.getDeviceCamera();
         }
-
-
         return devices;
     }
 
     public List<Type> getAllDeviceType(){
-        return DeviceDao.getAllDeviceType();
+        return deviceDao.getAllDeviceType();
+    }
+
+    public void updateDeviceIsOpenById(Device device){
+        deviceDao.updateDeviceIsOpenById(device);
     }
 
 }

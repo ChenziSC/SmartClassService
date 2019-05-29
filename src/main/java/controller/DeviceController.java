@@ -32,6 +32,7 @@ import java.util.Map;
 public class DeviceController {
     public static final String SUCCESS = "success";
     public static final String FAIL = "fail";
+
     @Autowired
     private DeviceService deviceService;
 
@@ -47,6 +48,17 @@ public class DeviceController {
     public List<Type> getAllDeviceType(@RequestBody Device device) {
         return deviceService.getAllDeviceType();
 
+    }
+
+    @RequestMapping(value = "/updateDeviceIsOpenById", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateDeviceIsOpenById(@RequestBody Device device) {
+        try {
+            deviceService.updateDeviceIsOpenById(device);
+            return SUCCESS;
+        } catch (Exception e) {
+            return FAIL;
+        }
     }
 }
 
