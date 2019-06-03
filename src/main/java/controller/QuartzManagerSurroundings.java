@@ -32,7 +32,6 @@ public class QuartzManagerSurroundings {
     public void addSurroudings() {
         System.out.println("addSurroudings");
         surroundingsService.addSurroudings();
-
     }
 
     @RequestMapping(value = "/addSurroundings", method = RequestMethod.POST)
