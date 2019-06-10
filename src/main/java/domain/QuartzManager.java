@@ -9,6 +9,7 @@ public class QuartzManager {
 
     public Scheduler scheduler;
 
+
     /**
      * @param jobName          任务名
      * @param jobGroupName     任务组名

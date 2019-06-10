@@ -1,6 +1,9 @@
 package controller;
 
+import domain.Device;
 import domain.QuartzManager;
+import domain.Surroundings;
+import domain.Type;
 import org.quartz.JobKey;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import service.DeviceService;
 import service.SurroundingsService;
 
 import java.text.SimpleDateFormat;
@@ -28,11 +32,16 @@ public class QuartzManagerSurroundings {
 
     @Autowired
     private SurroundingsService surroundingsService;
+    private DeviceService deviceService;
 
     public void addSurroudings() {
         System.out.println("addSurroudings");
         surroundingsService.addSurroudings();
-
+    }
+    @RequestMapping(value = "/getNewestSurrounding", method = RequestMethod.POST)
+    @ResponseBody
+    public Surroundings getNewestSurrounding(){
+        return surroundingsService.getNewestSurrounding();
     }
 
     @RequestMapping(value = "/addSurroundings", method = RequestMethod.POST)
@@ -41,7 +50,9 @@ public class QuartzManagerSurroundings {
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //        String nowDate = dateFormat.format(new Date());
         try {
+            System.out.println("begin");
             List<String> jobGroupNames = quartzManager.scheduler.getJobGroupNames();
+
             boolean exist = false;
             for (String groupNames : jobGroupNames) {
                 if (groupNames.equals("surroudings")) {
@@ -51,6 +62,7 @@ public class QuartzManagerSurroundings {
                         //get job's trigger
                         if (jobName.equals("addSurroudings")) {
                             exist = true;
+                            System.out.println("begin1");
                             break;
                         }
                     }
@@ -85,3 +97,6 @@ public class QuartzManagerSurroundings {
         quartzManager.removeJob(jobName, "surroudings", jobName, "surroudings");
     }
 }
+
+
+

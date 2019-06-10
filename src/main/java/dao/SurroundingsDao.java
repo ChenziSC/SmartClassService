@@ -19,4 +19,13 @@ public interface SurroundingsDao {
     * @return
     */
     void addNewSurrounding(Surroundings surroundings);
+
+    /**
+     * 获取最新的环境数据
+     *
+     * @return
+     */
+    Surroundings getNewestSurrounding();
+
+    List<Surroundings> getPreSurrounding();
 }

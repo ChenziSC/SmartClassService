@@ -16,5 +16,4 @@ public class SmokeDetector extends Device{
         this.state = state;
     }
 
-
 }

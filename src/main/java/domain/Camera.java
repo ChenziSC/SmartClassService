@@ -24,4 +24,6 @@ public class Camera extends Device{
     public void setLazyNum(int lazyNum) {
         this.lazyNum = lazyNum;
     }
+
+
 }

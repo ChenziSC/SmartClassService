@@ -6,11 +6,13 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+import service.DeviceService;
 
 public class SurroundingJob implements Job  {
 
     @Autowired
     private QuartzManagerSurroundings quartzManagerSurrounding;
+
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         JobDataMap dataMap = jobExecutionContext.getJobDetail().getJobDataMap();

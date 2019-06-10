@@ -24,4 +24,6 @@ public class Window extends Device{
     public void setCoverPercent(int coverPercent) {
         this.coverPercent = coverPercent;
     }
+
+
 }

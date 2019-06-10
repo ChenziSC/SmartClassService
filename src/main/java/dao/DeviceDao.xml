@@ -44,6 +44,14 @@
         ORDER BY a.id
     </select>
 
+    <select id="getDeviceInvaild" resultType="domain.Camera">
+        SELECT a.*,b.state,b.lazyNum
+        FROM device as a,camera as b
+        where a.type="camera" and a.id=b.deviceId
+        ORDER BY a.id
+    </select>
+
+
     <select id="getAllDeviceType" resultType="domain.Type">
         SELECT *
         FROM type
@@ -60,5 +68,75 @@
         state='dasd'
         where deviceId=#{id}
     </update>
+
+    <update id="setWindowCoverPercent" parameterType="domain.Window">
+        UPDATE window
+        SET
+        `coverPercent` = #{coverPercent}
+        WHERE `deviceId` = #{id}
+    </update>
+
+    <update id="setAirconditioningTem" parameterType="domain.AirConditioning">
+        UPDATE airConditioning
+        SET
+        `settingTemperature` = #{settingTemperature}
+        WHERE `deviceId` = #{id}
+    </update>
+
+    <update id="updateCameraById" parameterType="domain.Camera" >
+        UPDATE camera
+        SET
+        `lazyNum` = #{lazyNum}
+        WHERE `deviceId` = #{id}
+    </update>
+
+    <update id="setCurtainCoverPercent" parameterType="domain.Curtain">
+        UPDATE curtain
+        SET
+        `coverPercent` = #{coverPercent}
+        WHERE `deviceId` = #{id}
+    </update>
+
+    <update id="updateLampById" parameterType="domain.Lamp" >
+        UPDATE lamp
+        SET
+        `state` = #{state}
+        WHERE `deviceId` = #{id}
+    </update>
+
+    <update id="updateSmokeDetectorById" parameterType="domain.SmokeDetector" >
+        UPDATE smokeDetector
+        SET
+        `state` = #{state}
+        WHERE `deviceId` = #{id}
+    </update>
+
+    <select id="getCurtainList" resultType="domain.Curtain">
+        SELECT a.*,b.state,b.coverPercent
+        FROM device as a,curtain as b
+        where a.type="curtain" and a.id=b.deviceId and a.isOpen = 1
+        ORDER BY a.id
+    </select>
+
+    <select id="getAirConditioningList" resultType="domain.AirConditioning">
+        SELECT a.*,b.state,b.settingTemperature
+        FROM device as a,airconditioning as b
+        where a.type="airConditioning" and a.id=b.deviceId and a.isOpen = 1
+        ORDER BY a.id
+    </select>
+
+    <select id="getWindowList" resultType="domain.Window">
+        SELECT a.*,b.state,b.coverPercent
+        FROM device as a,window as b
+        where a.type="window" and a.id=b.deviceId and a.isOpen = 1
+        ORDER BY a.id
+    </select>
+
+    <select id="getLampList" resultType="domain.Lamp">
+        SELECT a.*,b.state
+        FROM device as a,lamp as b
+        where a.type="lamp" and a.id=b.deviceId
+        ORDER BY a.id
+    </select>
 
 </mapper>

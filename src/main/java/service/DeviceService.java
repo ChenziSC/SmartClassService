@@ -5,6 +5,7 @@ import domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,6 @@ public class DeviceService {
     private DeviceDao deviceDao;
 
     public List<Device> getDeviceByType(String type) {
-
         List<Device> devices = new LinkedList<>();
         if (type.equals("lamp")) {
             devices = deviceDao.getDeviceLamp();
@@ -35,6 +35,30 @@ public class DeviceService {
         return devices;
     }
 
+    public List<Window> getWindowList(){
+        List<Window> windows = new ArrayList<Window>();
+        windows = deviceDao.getWindowList();
+        return windows;
+    }
+
+    public List<Curtain> getCurtainList(){
+        List<Curtain> curtains = new ArrayList<Curtain>();
+        curtains = deviceDao.getCurtainList();
+        return curtains;
+    }
+
+    public List<AirConditioning> getAirConditioningList(){
+        List<AirConditioning> airConditionings = new ArrayList<AirConditioning>();
+        airConditionings = deviceDao.getAirConditioningList();
+        return airConditionings;
+    }
+
+    public List<Lamp> getLampList(){
+        List<Lamp> lamps = new ArrayList<Lamp>();
+        lamps = deviceDao.getLampList();
+        return lamps;
+    }
+
     public List<Type> getAllDeviceType(){
         return deviceDao.getAllDeviceType();
     }
@@ -43,4 +67,20 @@ public class DeviceService {
         deviceDao.updateDeviceIsOpenById(device);
     }
 
+    public void updataBySurroundings(Device device){
+        deviceDao.updateBySurroundings(device);
+    }
+    public void setWindowCoverPercent(Window window){
+        deviceDao.setWindowCoverPercent(window);
+    }
+    public void setAirconditioningTem(AirConditioning airconditioning){
+        deviceDao.setAirconditioningTem(airconditioning);
+    }
+    public void setCurtainCoverPercent(Curtain curtain){
+        deviceDao.setCurtainCoverPercent(curtain);
+    }
+
+    public void updateLamp(Lamp lamp){
+        deviceDao.updateLampById(lamp);
+    }
 }

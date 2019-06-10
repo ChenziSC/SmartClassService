@@ -14,4 +14,16 @@
         surroundings(light,temperature,smoke,createTime)
         VALUES(#{light},#{temperature},#{smoke},#{createTime})
     </insert>
+
+    <select id="getNewestSurrounding" resultType="domain.Surroundings">
+        select * from
+        surroundings
+        order by id DEsC limit 1
+    </select>
+
+    <select id="getPreSurrounding" resultType="domain.Surroundings">
+        select * from
+        surroundings
+        order by id DEsC limit 2
+    </select>
 </mapper>

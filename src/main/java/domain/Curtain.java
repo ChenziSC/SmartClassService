@@ -24,4 +24,6 @@ public class Curtain extends Device{
     public void setCoverPercent(int coverPercent) {
         this.coverPercent = coverPercent;
     }
+
+
 }

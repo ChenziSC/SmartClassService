@@ -40,7 +40,6 @@ public class DeviceController {
     @ResponseBody
     public List<Device> getDeviceByType(@RequestBody Device device) {
         return deviceService.getDeviceByType(device.getType());
-
     }
 
     @RequestMapping(value = "/getAllDeviceType", method = RequestMethod.POST)
@@ -55,6 +54,39 @@ public class DeviceController {
     public String updateDeviceIsOpenById(@RequestBody Device device) {
         try {
             deviceService.updateDeviceIsOpenById(device);
+            return SUCCESS;
+        } catch (Exception e) {
+            return FAIL;
+        }
+    }
+
+    @RequestMapping(value = "/setWindowCoverPercent", method = RequestMethod.POST)
+    @ResponseBody
+    public String setWindowCoverPercent(@RequestBody Window window) {
+        try {
+            deviceService.setWindowCoverPercent(window);
+            return SUCCESS;
+        } catch (Exception e) {
+            return FAIL;
+        }
+    }
+
+    @RequestMapping(value = "/setAirconditioningTem", method = RequestMethod.POST)
+    @ResponseBody
+    public String setAirconditioningTem(@RequestBody AirConditioning airConditioning) {
+        try {
+            deviceService.setAirconditioningTem(airConditioning);
+            return SUCCESS;
+        } catch (Exception e) {
+            return FAIL;
+        }
+    }
+
+    @RequestMapping(value = "/setCurtainCoverPercent", method = RequestMethod.POST)
+    @ResponseBody
+    public String setCurtainCoverPercent(@RequestBody Curtain curtain) {
+        try {
+            deviceService.setCurtainCoverPercent(curtain);
             return SUCCESS;
         } catch (Exception e) {
             return FAIL;

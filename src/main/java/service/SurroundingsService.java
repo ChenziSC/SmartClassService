@@ -43,4 +43,14 @@ public class SurroundingsService {
 
         surroundingsDao.addNewSurrounding(last);
     }
+
+    public Surroundings getNewestSurrounding() {
+        Surroundings surroundings = surroundingsDao.getNewestSurrounding();
+        return surroundings;
+    }
+
+    public List<Surroundings> getPreSurroundind(){
+        List<Surroundings> surroundings = surroundingsDao.getPreSurrounding();
+        return surroundings;
+    }
 }
