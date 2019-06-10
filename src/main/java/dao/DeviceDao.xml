@@ -65,7 +65,8 @@
         WHERE `id` = #{id};
         update ${type}
         set
-        state='dasd'
+        <if test="isOpen==0">state='关闭'</if>
+        <if test="isOpen==1">state='正常运行'</if>
         where deviceId=#{id}
     </update>
 
