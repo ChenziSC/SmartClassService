@@ -31,7 +31,6 @@ public class TypeController {
             quartzManagerDevices.setDeviceTimer(type);
 
             return SUCCESS;
-
         } catch (Exception e) {
             return FAIL;
         }
