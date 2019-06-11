@@ -22,6 +22,7 @@ public class CurtainJob implements Job{
         Surroundings curSurroundings = cpSurroundings.get(0);
         Surroundings preSurroundings = cpSurroundings.get(1);
         List<Curtain> curtainList = deviceService.getCurtainList();
+        System.out.println("开着的窗帘设备个数："+curtainList.size());
         //update
         for(Curtain curtain:curtainList) {
             int curCoverPercent =curtain.getCoverPercent();

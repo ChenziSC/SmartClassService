@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.DeviceService;
 import service.SurroundingsService;
+import service.TypeService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,7 +35,12 @@ public class QuartzManagerSurroundings {
 
     @Autowired
     private SurroundingsService surroundingsService;
+
+    @Autowired
     private DeviceService deviceService;
+
+    @Autowired
+    private TypeService typeService;
 
     public void addSurroudings() {
         System.out.println("addSurroudings");
@@ -52,6 +58,14 @@ public class QuartzManagerSurroundings {
     public String addQuartzManager() {
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //        String nowDate = dateFormat.format(new Date());
+
+        //先把所有设备的自动开关置0
+        List<Type> typeList = deviceService.getAllDeviceType();
+        for(Type type:typeList){
+            type.setAutoIsOpen(0);
+            typeService.setTypeByTypeName(type);
+        }
+
         try {
             System.out.println("begin");
             List<String> jobGroupNames = quartzManager.scheduler.getJobGroupNames();

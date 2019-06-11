@@ -27,6 +27,7 @@ public class TypeController {
     public String setTypeByTypeName(@RequestBody Type type) {
         try {
             typeService.setTypeByTypeName(type);
+
             //定时器
             quartzManagerDevices.setDeviceTimer(type);
 

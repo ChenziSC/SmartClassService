@@ -29,7 +29,7 @@ public class WindowJob implements Job {
         List<Surroundings> cpSurroundings = surroundingsService.getPreSurroundind();
         Surroundings curSurroundings = cpSurroundings.get(0);
         Surroundings preSurroundings = cpSurroundings.get(1);
-        List<Window> windowList = deviceService.getWindowList();
+        List<Window> windowList = new ArrayList<Window>();
         //update
         for (Window window : windowList) {
             int curCoverPercent = window.getCoverPercent();

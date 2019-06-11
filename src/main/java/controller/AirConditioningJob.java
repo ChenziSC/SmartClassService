@@ -28,6 +28,7 @@ public class AirConditioningJob implements Job{
         Surroundings curSurroundings = cpSurroundings.get(0);
         Surroundings preSurroundings = cpSurroundings.get(1);
         List<AirConditioning> airConditioningList = deviceService.getAirConditioningList();
+        System.out.println("开着的空调设备个数："+airConditioningList.size());
         //update
         for(AirConditioning airConditioning:airConditioningList) {
             int temperature =airConditioning.getSettingTemperature();
