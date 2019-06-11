@@ -37,6 +37,8 @@ class WindowTimer extends DeviceTimer{
         }
         return windowTimer;
     }
+
+    @Override
     public void update(int autoId, String corn){
         if(autoId == 1) {
             QuartzManagerDevices.quartzManager.addJob(
@@ -66,6 +68,7 @@ class CurtainTimer extends DeviceTimer{
         return curtainTimer;
     }
 
+    @Override
     public void update(int autoId, String corn){
 
         if(autoId == 1) {
@@ -102,6 +105,7 @@ class AirConditioningTimer extends DeviceTimer{
         return airConditioningTimer;
     }
 
+    @Override
     public void update(int autoId, String corn){
         if (autoId == 1) {
             QuartzManagerDevices.quartzManager.addJob(
@@ -130,6 +134,8 @@ class LampTimer extends DeviceTimer{
         }
         return lampTimer;
     }
+
+    @Override
     public void update(int autoId, String corn){
         if(autoId == 1) {
             QuartzManagerDevices.quartzManager.addJob(

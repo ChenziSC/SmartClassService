@@ -65,6 +65,8 @@ public class QuartzManagerSurroundings {
             type.setAutoIsOpen(0);
             typeService.setTypeByTypeName(type);
         }
+        //
+        QuartzManagerDevices.removeAllJob();
 
         try {
             System.out.println("begin");

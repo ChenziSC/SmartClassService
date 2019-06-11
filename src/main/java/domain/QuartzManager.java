@@ -73,6 +73,7 @@ public class QuartzManager {
             // 设置定时器时，triggerName与jobName同名
             for (JobKey jobKey : scheduler.getJobKeys(GroupMatcher.jobGroupEquals(jobGroupName))) {
                 String jobName = jobKey.getName();
+                System.out.println("移除 "+jobName);
                 removeJob(jobName, jobGroupName, jobName, triggerGroupName);
             }
         } catch (Exception e) {
