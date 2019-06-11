@@ -38,12 +38,7 @@ public class TypeController {
 
     @RequestMapping(value = "/getTypeByTypeName", method = RequestMethod.POST)
     @ResponseBody
-    public String getTypeByTypeName(@RequestBody Type type) {
-        try {
-            typeService.getTypeByTypeName(type);
-            return SUCCESS;
-        } catch (Exception e) {
-            return FAIL;
-        }
+    public Type getTypeByTypeName(@RequestBody Type type) {
+        return typeService.getTypeByTypeName(type);
     }
 }

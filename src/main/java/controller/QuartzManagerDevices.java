@@ -37,6 +37,7 @@ class WindowTimer extends DeviceTimer{
         }
         return windowTimer;
     }
+    @Override
     public void update(int autoId, String corn){
         if(autoId == 1) {
             QuartzManagerDevices.quartzManager.addJob(
@@ -65,7 +66,7 @@ class CurtainTimer extends DeviceTimer{
         }
         return curtainTimer;
     }
-
+    @Override
     public void update(int autoId, String corn){
 
         if(autoId == 1) {
@@ -101,7 +102,7 @@ class AirConditioningTimer extends DeviceTimer{
         }
         return airConditioningTimer;
     }
-
+    @Override
     public void update(int autoId, String corn){
         if (autoId == 1) {
             QuartzManagerDevices.quartzManager.addJob(
@@ -130,6 +131,7 @@ class LampTimer extends DeviceTimer{
         }
         return lampTimer;
     }
+    @Override
     public void update(int autoId, String corn){
         if(autoId == 1) {
             QuartzManagerDevices.quartzManager.addJob(
@@ -206,34 +208,58 @@ public class QuartzManagerDevices {
                 String corn = "*/10 * * * * ?";
                 WindowTimer windowTimer = WindowTimer.getInstance();
                 windowTimer.update(type.getAutoIsOpen(), corn);
-            }else {
+            }
+            if(windowExist&&type.getAutoIsOpen()==0){
+                String corn = "*/10 * * * * ?";
+                WindowTimer windowTimer = WindowTimer.getInstance();
+                windowTimer.update(type.getAutoIsOpen(), corn);
+            }
+            if(windowExist&&type.getAutoIsOpen()==1){
                 System.out.println("windowTimer已经存在");
             }
         }
         if (type.getTypeName().equals("curtain")){
-            if(!curtainExist) {
+            if(!curtainExist&&type.getAutoIsOpen()==1) {
                 String corn = "*/10 * * * * ?";
                 CurtainTimer curtainTimer = CurtainTimer.getInstance();
                 curtainTimer.update(type.getAutoIsOpen(), corn);
-            }else {
+            }
+            if(curtainExist&&type.getAutoIsOpen()==0){
+                String corn = "*/10 * * * * ?";
+                CurtainTimer curtainTimer = CurtainTimer.getInstance();
+                curtainTimer.update(type.getAutoIsOpen(), corn);
+            }
+            if(curtainExist&&type.getAutoIsOpen()==1){
                 System.out.println("curtainTimer已经存在");
             }
         }
         if (type.getTypeName().equals("airConditioning")){
-            if(!airConditioningExist) {
+            if(!airConditioningExist&&type.getAutoIsOpen()==1) {
                 String corn = "*/10 * * * * ?";
                 AirConditioningTimer airConditioningTimer = AirConditioningTimer.getInstance();
                 airConditioningTimer.update(type.getAutoIsOpen(), corn);
-            }else {
+            }
+            if(airConditioningExist&&type.getAutoIsOpen()==0){
+                String corn = "*/10 * * * * ?";
+                AirConditioningTimer airConditioningTimer = AirConditioningTimer.getInstance();
+                airConditioningTimer.update(type.getAutoIsOpen(), corn);
+            }
+            if(airConditioningExist&&type.getAutoIsOpen()==1){
                 System.out.println("airConditioningTimer已经存在");
             }
         }
         if (type.getTypeName().equals("lamp")){
-            if(!lampExist) {
+            if(!lampExist&&type.getAutoIsOpen()==1) {
                 String corn = "*/10 * * * * ?";
                 LampTimer lampTimer = LampTimer.getInstance();
                 lampTimer.update(type.getAutoIsOpen(), corn);
-            }else {
+            }
+            if(lampExist&&type.getAutoIsOpen()==0){
+                String corn = "*/10 * * * * ?";
+                LampTimer lampTimer = LampTimer.getInstance();
+                lampTimer.update(type.getAutoIsOpen(), corn);
+            }
+            if(lampExist&&type.getAutoIsOpen()==1){
                 System.out.println("lampTimer已经存在");
             }
         }

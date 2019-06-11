@@ -26,6 +26,8 @@ import java.util.List;
 @Component
 @RequestMapping(value = "/QuartzManagerSurroundings")
 public class QuartzManagerSurroundings {
+    public static final String SUCCESS = "success";
+    public static final String FAIL = "fail";
 
     @Autowired
     QuartzManager quartzManager;
@@ -38,6 +40,7 @@ public class QuartzManagerSurroundings {
         System.out.println("addSurroudings");
         surroundingsService.addSurroudings();
     }
+
     @RequestMapping(value = "/getNewestSurrounding", method = RequestMethod.POST)
     @ResponseBody
     public Surroundings getNewestSurrounding(){
@@ -46,7 +49,7 @@ public class QuartzManagerSurroundings {
 
     @RequestMapping(value = "/addSurroundings", method = RequestMethod.POST)
     @ResponseBody
-    public void addQuartzManager() {
+    public String addQuartzManager() {
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //        String nowDate = dateFormat.format(new Date());
         try {
@@ -78,10 +81,12 @@ public class QuartzManagerSurroundings {
                         "surroudings",
                         SurroundingJob.class,
                         corn);
+                return SUCCESS;
             }
-
+            return FAIL;
         } catch (SchedulerException e) {
             e.printStackTrace();
+            return FAIL;
         }
     }
 

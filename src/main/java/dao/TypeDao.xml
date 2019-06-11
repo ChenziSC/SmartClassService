@@ -5,8 +5,8 @@
     <update id="setTypeByTypeName" parameterType="domain.Type">
         UPDATE type
         SET
-        `typeName` = #{typeName}
-        WHERE `autoIsOpen` = #{autoIsOpen}
+        `autoIsOpen` = #{autoIsOpen}
+        WHERE `typeName` = #{typeName}
     </update>
 
     <select id="getTypeByTypeName" resultType="domain.Type">
