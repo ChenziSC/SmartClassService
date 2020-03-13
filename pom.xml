@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.SXPRO</groupId>
-    <artifactId>fwwbService</artifactId>
+    <artifactId>SmartClassService</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>fwwbService Maven Webapp</name>
+    <name>SmartClassService Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -296,7 +296,7 @@
     </dependencies>
 
     <build>
-        <finalName>fwwbService</finalName>
+        <finalName>SmartClassService</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
@@ -346,7 +346,7 @@
                     <version>2.2</version>
                     <configuration>
                         <!-- 使用内置的模拟Tomcat服务器 -->
-                        <path>/fwwbService</path>
+                        <path>/SmartClassService</path>
                         <uriEncoding>UTF-8</uriEncoding>
                         <port>8080</port>
                         <mode>context</mode>
