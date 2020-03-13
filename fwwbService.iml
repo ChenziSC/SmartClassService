@@ -86,5 +86,17 @@
     <orderEntry type="library" name="Maven: com.github.kevinsawicki:http-request:5.6" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:core:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:javase:2.2" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.29.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/power-voronoi-diagram--2a069ff02a-1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

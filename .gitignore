@@ -3,5 +3,5 @@ target/
 .settings/
 .classpath
 .project
-smartClassroomService.iml
+fwwbService.iml
 out/
